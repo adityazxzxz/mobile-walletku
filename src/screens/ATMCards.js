@@ -42,22 +42,26 @@ export default function ATMCards() {
         return (
           <ImageBackground
             key={index}
+            resizeMode="contain"
             style={styles.card}
             source={data.backgroundImage}
           >
             <ImageBackground
               style={styles.cardMask}
+              resizeMode="contain"
               source={data.rightCornerIcon}
             />
             <View style={styles.cardContent}>
               <Image source={data.logo} style={styles.cardLogo} />
               <View style={styles.cardMembership}>
-                {/* <Text style={{ color: "#fff" }}>{data.cardMembership}</Text> */}
-                <Text
-                  style={{ color: "#fff", fontSize: 16, fontWeight: "700" }}
-                >
-                  Limit: {data.limit}
-                </Text>
+                <View>
+                  <Text style={{ color: "#fff" }}>Limit: </Text>
+                  <Text
+                    style={{ color: "#fff", fontSize: 16, fontWeight: "700" }}
+                  >
+                    {data.limit}
+                  </Text>
+                </View>
                 <Text style={{ color: "#fff" }}>{data.cardNumber}</Text>
               </View>
               <View style={styles.cardMembership}>
@@ -102,7 +106,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     height: 200,
-    width: 340,
     borderRadius: 20,
     margin: 10,
     position: "relative",
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
   },
   cardMask: {
     height: 200,
-    width: 327,
+    width:320,
     zIndex: 11,
     position: "absolute",
     top: 10,
@@ -125,7 +128,7 @@ const styles = StyleSheet.create({
   },
   cardLogo: {
     marginTop: 0,
-    marginBottom: 30,
+    marginBottom: 20,
   },
   cardMembership: {
     flexDirection: "row",
